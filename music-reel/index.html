@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boone Spooner : Music Reel</title>
+  <meta name="description" content="Boone Spooner - Music Reel">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #333;
+    }
+
+    header {
+      padding: 2.5rem 2rem 1.5rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    header a.home {
+      text-decoration: none;
+      color: transparent;
+      -webkit-text-stroke: 1px #c0b8d8;
+      font-size: 1.4rem;
+      font-weight: 200;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    header a.home:hover { -webkit-text-stroke-color: #9990c0; }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: #bbb;
+    }
+
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      text-transform: lowercase;
+    }
+
+    nav a:hover { color: #888; }
+    nav a.active { color: #888; }
+
+    .page-title {
+      padding: 2rem 2rem 0.5rem;
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #c0b8d8;
+    }
+
+    .track-list {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 1rem 2rem 4rem;
+    }
+
+    .track {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .track:last-child { border-bottom: none; }
+
+    .track-title {
+      font-size: 0.82rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      color: #444;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    audio {
+      height: 28px;
+      width: 260px;
+      accent-color: #c0b8d8;
+    }
+
+    @media (max-width: 600px) {
+      .track {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+      audio { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="home">Boone Spooner</a>
+    <nav>
+      <a href="/music-reel/" class="active">reel</a>
+      <a href="/portfolio/">design</a>
+      <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener">spotify</a>
+    </nav>
+  </header>
+
+  <p class="page-title">Music Reel</p>
+
+  <div class="track-list">
+
+    <div class="track">
+      <span class="track-title">Haircut Hank</span>
+      <audio controls preload="none"><source src="/music/HaircutHank100612.MP3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Pretty Pebbles</span>
+      <audio controls preload="none"><source src="/music/PrettyPebbles_090112.MP3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Asilomar</span>
+      <audio controls preload="none"><source src="/music/Asilomar060108.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Nineteen Eighty Four</span>
+      <audio controls preload="none"><source src="/music/NineteenEightyFour_120112.MP3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Elephone &ndash; Chump Change</span>
+      <audio controls preload="none"><source src="/music/Elephone%20-%20Chump%20Change.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Autumn</span>
+      <audio controls preload="none"><source src="/music/01%20Autumn.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">I Could Change</span>
+      <audio controls preload="none"><source src="/music/I%20Could%20Change.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Love Not Dead &ndash; WPOD</span>
+      <audio controls preload="none"><source src="/music/Love%20Not%20Dead%20-%20WPOD.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Stratford 4 &ndash; Inner Sunset</span>
+      <audio controls preload="none"><source src="/music/Stratford%204%20-%20Inner%20Sunset.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Chesapeake</span>
+      <audio controls preload="none"><source src="/music/03%20Chesapeake_082108.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Awaysaway</span>
+      <audio controls preload="none"><source src="/music/Awaysaway052708.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Valentine</span>
+      <audio controls preload="none"><source src="/music/07%20Valentine_051808.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Elephone &ndash; Style Style</span>
+      <audio controls preload="none"><source src="/music/Elephone%20-%20Style%20Style.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Madelia &ndash; Wither</span>
+      <audio controls preload="none"><source src="/music/Madelia%20-%20Wither.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Madelia &ndash; The Compliment</span>
+      <audio controls preload="none"><source src="/music/Madelia%20-%20The%20Compliment.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Sister (Mix 1)</span>
+      <audio controls preload="none"><source src="/music/Sister%20Mix%201.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Sister</span>
+      <audio controls preload="none"><source src="/music/04%20Sister_061308.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Death Angel &ndash; 5 Steps Of Freedom</span>
+      <audio controls preload="none"><source src="/music/Death%20Angel%20-%205%20Steps%20Of%20Freedom.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Collapsing</span>
+      <audio controls preload="none"><source src="/music/05%20Collapsing_050108.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Beth Waters &ndash; This Little Piggy</span>
+      <audio controls preload="none"><source src="/music/Beth%20Waters%20-%20This%20Little%20Piggy.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Asilomar (Alt)</span>
+      <audio controls preload="none"><source src="/music/Asilomar.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Redhead</span>
+      <audio controls preload="none"><source src="/music/06%20Redhead_020308.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Dynamic &ndash; First Battle</span>
+      <audio controls preload="none"><source src="/music/Dynamic%20-%20First%20Battle.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Collapsing (New Mix)</span>
+      <audio controls preload="none"><source src="/music/CollapsingNew.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Pedalsped &ndash; Change</span>
+      <audio controls preload="none"><source src="/music/Pedalsped%20-%20Change.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">The Farthest Thing</span>
+      <audio controls preload="none"><source src="/music/Boone%20Spooner_The%20Farthest%20Thing.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Thriving Ivory &ndash; Careless in November</span>
+      <audio controls preload="none"><source src="/music/Thriving_Ivory_-_Careless_in_November.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Alanis Morissette &ndash; Hands Clean</span>
+      <audio controls preload="none"><source src="/music/Alanis%20Morrisette%20-%20Hands%20Clean.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Pedalsped &ndash; Space Song</span>
+      <audio controls preload="none"><source src="/music/Pedalsped%20-%20Space%20Song.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Blushfire</span>
+      <audio controls preload="none"><source src="/music/Blushfire.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Pedalsped &ndash; Soldiers</span>
+      <audio controls preload="none"><source src="/music/Pedalsped%20-%20Soldiers.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Thriving Ivory &ndash; Unhappy</span>
+      <audio controls preload="none"><source src="/music/Thriving_Ivory_-_Unhappy.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Steve Earle &ndash; The Revolution Starts Now</span>
+      <audio controls preload="none"><source src="/music/Steve%20Earle%20-%20The%20Revolution%20Starts%20Now.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Outline Kit &ndash; Hands</span>
+      <audio controls preload="none"><source src="/music/Outline%20Kit%20-%20Hands.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Madelia &ndash; Chords</span>
+      <audio controls preload="none"><source src="/music/Madelia%20-%20Chords.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Cherry</span>
+      <audio controls preload="none"><source src="/music/02%20Cherry.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">James Riddle &ndash; I Don&#39;t Want To Know</span>
+      <audio controls preload="none"><source src="/music/James%20Riddle%20-%20I%20Don%27t%20Want%20To%20Know.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Cherry (New Mix)</span>
+      <audio controls preload="none"><source src="/music/CherryNewMix.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Cameron Ember &ndash; Valerie</span>
+      <audio controls preload="none"><source src="/music/Cameron%20Ember%20-%20Valerie.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Beth Waters &ndash; White Dogs in the Moonlight</span>
+      <audio controls preload="none"><source src="/music/Beth%20Waters%20-%20White%20Dogs%20in%20the%20Moonlight.mp3.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Thriving Ivory &ndash; Isabelle</span>
+      <audio controls preload="none"><source src="/music/Thriving_Ivory_-_Isabelle.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Matt Bauer &ndash; Jordan In A Plastic Bag</span>
+      <audio controls preload="none"><source src="/music/Matt%20Bauer%20-%20Jordan%20In%20A%20Plastic%20Bag.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Madelia &ndash; The Last Match</span>
+      <audio controls preload="none"><source src="/music/Madelia%20-%20The%20Last%20Match.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Blown Cuda &ndash; You Will Feel Light</span>
+      <audio controls preload="none"><source src="/music/Blown%20Cuda%20-%20You%20Will%20Feel%20Light.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">The Otherside &ndash; Dirty Devil</span>
+      <audio controls preload="none"><source src="/music/The%20Otherside%20-%20Dirty%20Devil.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Sam Kearney &ndash; Saturn</span>
+      <audio controls preload="none"><source src="/music/Sam%20Kearney%20-%20Saturn.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Thistle &ndash; When It Rains</span>
+      <audio controls preload="none"><source src="/music/Thistle%20-%20When%20It%20Rains.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Forest Sun &ndash; No Regrets</span>
+      <audio controls preload="none"><source src="/music/Forest%20Sun%20-%20No%20Regrets.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">My Revolver &ndash; Ammunition</span>
+      <audio controls preload="none"><source src="/music/My%20Revolver%20-%20Ammunition.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Death of a Party &ndash; Marissa 1 to 8</span>
+      <audio controls preload="none"><source src="/music/Death%20of%20a%20Party%20-%20Marissa%201%20to%208.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Saturn (Boone Master)</span>
+      <audio controls preload="none"><source src="/music/saturn%20boone%20%28master%29.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <div class="track">
+      <span class="track-title">Dynamic &ndash; The Bug</span>
+      <audio controls preload="none"><source src="/music/Dynamic%20-%20The%20Bug.mp3" type="audio/mpeg"></audio>
+    </div>
+
+  </div>
+</body>
+</html>
