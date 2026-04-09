@@ -3,7 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Boone Spooner - Music, Design and Product</title>
+
+  <!-- Primary SEO -->
+  <title>Boone Spooner — Product Manager, Composer & Music Producer</title>
+  <meta name="description" content="Boone Spooner is a product manager and composer based in the US. He has led products at Google (Android Safety, Earthquake Alerts, Emergency Location Service), Caavo, and TuneIn. Also a composer and music producer.">
+  <meta name="author" content="Boone Spooner">
+  <link rel="canonical" href="https://www.boonespooner.com/">
+
+  <!-- Open Graph (Facebook, LinkedIn, iMessage previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.boonespooner.com/">
+  <meta property="og:title" content="Boone Spooner — Product Manager, Composer & Music Producer">
+  <meta property="og:description" content="Product work at Google, Caavo, and TuneIn. Music on Spotify.">
+  <meta property="og:site_name" content="Boone Spooner">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Boone Spooner — Product Manager, Composer & Music Producer">
+  <meta name="twitter:description" content="Product work at Google, Caavo, and TuneIn. Music on Spotify.">
+
+  <!-- Structured Data: Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Boone Spooner",
+    "url": "https://www.boonespooner.com",
+    "sameAs": [
+      "https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl"
+    ],
+    "jobTitle": "Product Manager",
+    "description": "Product manager and composer. Led Android Safety products at Google including Earthquake Alerts and Emergency Location Service. Previously Principal PM at Caavo and Senior Director of Product at TuneIn.",
+    "knowsAbout": ["Product Management", "UX Design", "Music Production", "Composition", "Android", "Consumer Technology"]
+  }
+  </script>
+
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -56,6 +90,16 @@
     .sep {
       margin: 0 0.5em;
     }
+
+    /* Visually hidden text for SEO — readable by crawlers, invisible to users */
+    .seo-context {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+    }
   </style>
 </head>
 <body>
@@ -69,5 +113,15 @@
       <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener">spotify</a>
     </p>
   </div>
+
+  <!-- Crawlable context for search engines -->
+  <p class="seo-context">
+    Boone Spooner is a product manager and composer. He led Android Safety products at Google,
+    including Android Earthquake Alerts and Emergency Location Service. He was Principal Product
+    Manager at Caavo, where he launched the Caavo Classic and Caavo Control Center. He served as
+    Senior Director of Product at TuneIn, where he launched TuneIn Premium, the NFL audio
+    partnership, and audiobook integrations. He is also a composer and music producer with music
+    available on Spotify.
+  </p>
 </body>
 </html>
