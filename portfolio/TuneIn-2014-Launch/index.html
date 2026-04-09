@@ -5,23 +5,127 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TuneIn 2014 Launch — Boone Spooner</title>
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    body{background:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#333}
-    header{padding:2.5rem 2rem 1.5rem;border-bottom:1px solid #eee;display:flex;align-items:baseline;gap:2rem;flex-wrap:wrap}
-    header a.home{text-decoration:none;color:transparent;-webkit-text-stroke:1px #c0b8d8;font-size:1.4rem;font-weight:200;letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap}
-    header a.home:hover{-webkit-text-stroke-color:#9990c0}
-    nav{display:flex;gap:1.5rem;font-size:0.8rem;font-weight:300;letter-spacing:0.1em;color:#bbb}
-    nav a{color:inherit;text-decoration:none;text-transform:lowercase}
-    nav a:hover,nav a.active{color:#888}
-    .wrap{max-width:960px;margin:0 auto;padding:3rem 2rem 6rem}
-    .back{display:inline-block;font-size:0.75rem;font-weight:300;letter-spacing:0.1em;color:#c0b8d8;text-decoration:none;margin-bottom:2rem}
-    .back:hover{color:#9990c0}
-    h1{font-size:1.4rem;font-weight:300;letter-spacing:0.05em;color:#333;margin-bottom:0.5rem}
-    .tags{font-size:0.72rem;font-weight:300;letter-spacing:0.08em;color:#bbb;margin-bottom:2.5rem;text-transform:lowercase}
-    .content{font-size:0.88rem;font-weight:300;line-height:1.8;color:#444}
-    .content b{font-weight:500;color:#333;display:block;margin-top:1.8rem;margin-bottom:0.3rem}
-    .content i{color:#888;font-size:0.82rem}
-    .content img{max-width:100%;height:auto;display:block;margin:1.5rem 0}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #fff;
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      color: #333;
+    }
+
+    header {
+      padding: 2.5rem 2rem 1.5rem;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    header a.home {
+      text-decoration: none;
+      color: transparent;
+      -webkit-text-stroke: 1px #c0b8d8;
+      font-size: 1.4rem;
+      font-weight: 200;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    header a.home:hover { -webkit-text-stroke-color: #9990c0; }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: #bbb;
+    }
+    nav a { color: inherit; text-decoration: none; text-transform: lowercase; }
+    nav a:hover, nav a.active { color: #888; }
+
+    .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 7rem;
+    }
+
+    .back {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      color: #c0b8d8;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+    }
+    .back:hover { color: #9990c0; }
+
+    h1 {
+      font-size: 2.6rem;
+      font-weight: 200;
+      letter-spacing: 0.02em;
+      color: #222;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      font-size: 0.68rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      color: #c0b8d8;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .content {
+      font-size: 0.92rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: #555;
+    }
+
+    .content b {
+      display: block;
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-top: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 2.5rem 0;
+    }
+
+    /* suppress br immediately before/after an image */
+    .content img + br,
+    .content br + img { display: none; }
+
+    .content i {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: #bbb;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid #f0f0f0;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .wrap { padding: 2rem 1.25rem 5rem; }
+    }
   </style>
 </head>
 <body>
@@ -44,65 +148,29 @@ Below is an overview of some of the pieces that I created, planned and product m
 <b>Mobile Flow Mapping</b><br />
 I created several critical mobile mapping flows to help our engineering team understand how we expected parts of the app to behave. These "mapping" docs became the de-facto requirements for our launch.<br />
 <br />
-<b>New User Mobile Paths Wireframes</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/OnBoarding-Specifics-fm_1000.png" loading="lazy" alt=""><br />
-<br />
-<b>Android New User Mobile Paths Glossy Layout</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/TuneIn-FM-Android-Flows_1000.png" loading="lazy" alt=""><br />
-<br />
-<b>iOS New User Mobile Paths Glossy Layout</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/TuneIn-FM-Flows-iOS_1000.jpg" loading="lazy" alt=""><br />
-<br />
+<b>New User Mobile Paths Wireframes</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/OnBoarding-Specifics-fm_1000.png" loading="lazy" alt="">
+<b>Android New User Mobile Paths Glossy Layout</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/TuneIn-FM-Android-Flows_1000.png" loading="lazy" alt="">
+<b>iOS New User Mobile Paths Glossy Layout</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/TuneIn-FM-Flows-iOS_1000.jpg" loading="lazy" alt="">
 <b>OnBoarding</b><br />
 For the first time we introduced an onboarding flow with TuneIn. This flow was designed to get you to content we thought you'd love based on your location, the most popular content near you, and an editorial selection of the best content we had available.<br />
 <br />
-<b>Mobile Glossy Mocks</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/onboarding_18_905.jpg" loading="lazy" alt=""><br />
-<br />
-<b>Web Glossy Mocks</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/web-onboarding3_1000.jpg" loading="lazy" alt=""><br />
-<br />
+<b>Mobile Glossy Mocks</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/onboarding_18_905.jpg" loading="lazy" alt="">
+<b>Web Glossy Mocks</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/web-onboarding3_1000.jpg" loading="lazy" alt="">
 <b>Browse</b><br />
 As part of this launch we also redesigned our main Browse experience. We introduced the notion of "galleries" which were a horizontally organized list of boxes that a user could swipe through.<br />
 <br />
 I started with wireframes and then worked with the design team to create glossy mocks for the engineering team.<br />
 <br />
-<b>Mobile Wireframes</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/Simple_Browse_1000.png" loading="lazy" alt=""><br />
-<br />
-<b>Mobile Glossy Mocks</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/browse_fm_905.jpg" loading="lazy" alt=""><br />
-<br />
-<b>Web Glossy Mocks</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/tunein.com_browse_3_1000.png" loading="lazy" alt=""><br />
-<br />
+<b>Mobile Wireframes</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/Simple_Browse_1000.png" loading="lazy" alt="">
+<b>Mobile Glossy Mocks</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/browse_fm_905.jpg" loading="lazy" alt="">
+<b>Web Glossy Mocks</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/tunein.com_browse_3_1000.png" loading="lazy" alt="">
 <b>Explore</b><br />
 We also introduced the notion of the Explore page. We created this and ran it on 20% of users to understand how it would help them improve discovery of new content. <br />
 <br />
-<b>Mobile Glossy Mocks:</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/explore_FM_905.jpg" loading="lazy" alt=""><br />
-<br />
-<b>Mobile Wireframes:</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/Explore_wireframe_5_1000.png" loading="lazy" alt=""><br />
-<br />
-<b>Web Wireframes:</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/ExploreWeb_9_895.png" loading="lazy" alt=""><br />
-<br />
-<b>Web Glossy Mock:</b><br />
-<br />
-<img src="https://payload.cargocollective.com/1/8/260033/12980797/tunein.com_explore_8_1000.png" loading="lazy" alt=""><br />
-<br />
+<b>Mobile Glossy Mocks:</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/explore_FM_905.jpg" loading="lazy" alt="">
+<b>Mobile Wireframes:</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/Explore_wireframe_5_1000.png" loading="lazy" alt="">
+<b>Web Wireframes:</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/ExploreWeb_9_895.png" loading="lazy" alt="">
+<b>Web Glossy Mock:</b><img src="https://payload.cargocollective.com/1/8/260033/12980797/tunein.com_explore_8_1000.png" loading="lazy" alt="">
 <i>Credits:<br />
 Boone Spooner - Product, UX Design<br />
 Garrett Olinger - Android UI / UX Design, Visual Design<br />
