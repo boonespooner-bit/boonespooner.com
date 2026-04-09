@@ -171,6 +171,7 @@
 The problem it solves is fundamental: when someone is in crisis, they often can't describe where they are. Cell tower triangulation — the traditional fallback — was wildly imprecise, sometimes placing a caller within a 3km radius. Seconds matter. Accuracy matters.
 <b>How It Works</b>
 When an emergency call is placed, ELS triggers the Android Fused Location Provider, which combines GPS, Wi-Fi, cell, and sensor data to establish the most accurate position possible as quickly as possible. That location is sent directly and securely to emergency services — bypassing Google entirely. If location settings are off on the device, ELS has privileged access to enable them for the duration of the emergency.
+<img src="https://i.gzn.jp/img/2019/10/10/emergency-location-service/02.png" loading="lazy" alt="Android Emergency Location Service — how it works">
 
 ELS works on all Android devices running Gingerbread (2.3.7) or later, which meant near-universal Android coverage from day one. It is on by default, requires no app install, and works in the background without interrupting the call.
 <b>Scale & Impact</b>
