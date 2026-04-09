@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animations — Boone Spooner</title>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{background:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;color:#333}
+    header{padding:2.5rem 2rem 1.5rem;border-bottom:1px solid #eee;display:flex;align-items:baseline;gap:2rem;flex-wrap:wrap}
+    header a.home{text-decoration:none;color:transparent;-webkit-text-stroke:1px #c0b8d8;font-size:1.4rem;font-weight:200;letter-spacing:0.15em;text-transform:uppercase;white-space:nowrap}
+    header a.home:hover{-webkit-text-stroke-color:#9990c0}
+    nav{display:flex;gap:1.5rem;font-size:0.8rem;font-weight:300;letter-spacing:0.1em;color:#bbb}
+    nav a{color:inherit;text-decoration:none;text-transform:lowercase}
+    nav a:hover,nav a.active{color:#888}
+    .wrap{max-width:960px;margin:0 auto;padding:3rem 2rem 6rem}
+    .back{display:inline-block;font-size:0.75rem;font-weight:300;letter-spacing:0.1em;color:#c0b8d8;text-decoration:none;margin-bottom:2rem}
+    .back:hover{color:#9990c0}
+    h1{font-size:1.4rem;font-weight:300;letter-spacing:0.05em;color:#333;margin-bottom:0.5rem}
+    .tags{font-size:0.72rem;font-weight:300;letter-spacing:0.08em;color:#bbb;margin-bottom:2.5rem;text-transform:lowercase}
+    .content{font-size:0.88rem;font-weight:300;line-height:1.8;color:#444}
+    .content b{font-weight:500;color:#333;display:block;margin-top:1.8rem;margin-bottom:0.3rem}
+    .content i{color:#888;font-size:0.82rem}
+    .content img{max-width:100%;height:auto;display:block;margin:1.5rem 0}
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="home">Boone Spooner</a>
+    <nav>
+      <a href="/music-reel/">reel</a>
+      <a href="/portfolio/" class="active">product</a>
+      <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener">spotify</a>
+    </nav>
+  </header>
+  <div class="wrap">
+    <a href="/portfolio/" class="back">&larr; portfolio</a>
+    <h1>Animations</h1>
+    <p class="tags">animations &middot; ux design</p>
+    <div class="content">Below are several animations for a pitch that we made for Samsung. <br />
+<br />
+Our idea was to create compelling, beautiful experiences. Eye catching yet always usable. They had to present our content in a completely new way and offer up new use cases and experiences.<br />
+ <br />
+First: a visualizer with genre wheel. Flipping through tiles is playful and the wheel gives the user a sense of freedom to explore.<br />
+<br />
+	<div class="video_component" contenteditable="false" data-ref="">
+		<object width="480" height="890">
+			<param name="allowfullscreen" value="true" />
+			<param name="allowscriptaccess" value="always" />
+			<param name="bgcolor" value="#000000" />
+			<param name="wmode" value="opaque" />
+			<param name="video-url" value="http://www.boonespooner.com/videos/Final_Boone.mov" />
+			<param id="poster" value="http://www.boonespooner.com/videos/Final_Boone1.jpg" />
+			<param id="poster_small" value="https://payload.cargocollective.com//" />
+			<param name="movie" value="https://cargocollective.com/videoplayer/cargovideo.swf" />
+			<param name="flashvars" value="videoPath=http://www.boonespooner.com/videos/Final_Boone.mov&previewImage=http://www.boonespooner.com/videos/Final_Boone1.jpg" />
+			<embed src="https://cargocollective.com/videoplayer/cargovideo.swf?videoPath=http://www.boonespooner.com/videos/Final_Boone.mov&previewImage=http://www.boonespooner.com/videos/Final_Boone1.jpg" type="application/x-shockwave-flash" wmode="opaque" allowfullscreen="true" bgcolor="#000000" width="480" height="890"></embed>
+		</object>
+		<div class="video_tag">
+			<div class="mediaplayer">
+				<video width="480" height="890" preload="metadata" controls="controls" poster="http://www.boonespooner.com/videos/Final_Boone1.jpg">
+					<source src="http://www.boonespooner.com/videos/Final_Boone.mov" />
+					<div class="fallback"></div>
+				</video>
+			</div>
+		</div>
+	</div>
+<br />
+<i>Credits:<br />
+Boone Spooner - Animation, UI / UX Design, Visual Design<br />
+</i><br />
+Second: A weather widget / schedule widget. As the day wears on the choice of stations and songs changes.<br />
+<br />
+	<div class="video_component" contenteditable="false" data-ref="">
+		<object width="480" height="890">
+			<param name="allowfullscreen" value="true" />
+			<param name="allowscriptaccess" value="always" />
+			<param name="bgcolor" value="#000000" />
+			<param name="wmode" value="opaque" />
+			<param name="video-url" value="http://www.boonespooner.com/videos/Final_Weather.mov" />
+			<param id="poster" value="http://www.boonespooner.com/videos/Final_Weather1.jpg" />
+			<param id="poster_small" value="https://payload.cargocollective.com//" />
+			<param name="movie" value="https://cargocollective.com/videoplayer/cargovideo.swf" />
+			<param name="flashvars" value="videoPath=http://www.boonespooner.com/videos/Final_Weather.mov&previewImage=http://www.boonespooner.com/videos/Final_Weather1.jpg" />
+			<embed src="https://cargocollective.com/videoplayer/cargovideo.swf?videoPath=http://www.boonespooner.com/videos/Final_Weather.mov&previewImage=http://www.boonespooner.com/videos/Final_Weather1.jpg" type="application/x-shockwave-flash" wmode="opaque" allowfullscreen="true" bgcolor="#000000" width="480" height="890"></embed>
+		</object>
+		<div class="video_tag">
+			<div class="mediaplayer">
+				<video width="480" height="890" preload="metadata" controls="controls" poster="http://www.boonespooner.com/videos/Final_Weather1.jpg">
+					<source src="http://www.boonespooner.com/videos/Final_Weather.mov" />
+					<div class="fallback"></div>
+				</video>
+			</div>
+		</div>
+	</div>
+<br />
+<i>Credits:<br />
+Boone Spooner - Animation, UX Design<br />
+Garrett Olinger - UI / UX Design, Visual Design<br />
+</i><br />
+Third: An alarm clock with a vintage feel.<br />
+<br />
+	<div class="video_component" contenteditable="false" data-ref="">
+		<object width="785" height="850">
+			<param name="allowfullscreen" value="true" />
+			<param name="allowscriptaccess" value="always" />
+			<param name="bgcolor" value="#000000" />
+			<param name="wmode" value="opaque" />
+			<param name="video-url" value="http://www.boonespooner.com/videos/Final_Vintage.mov" />
+			<param id="poster" value="http://www.boonespooner.com/videos/Final_Vintage.jpg" />
+			<param id="poster_small" value="https://payload.cargocollective.com//" />
+			<param name="movie" value="https://cargocollective.com/videoplayer/cargovideo.swf" />
+			<param name="flashvars" value="videoPath=http://www.boonespooner.com/videos/Final_Vintage.mov&previewImage=http://www.boonespooner.com/videos/Final_Vintage.jpg" />
+			<embed src="https://cargocollective.com/videoplayer/cargovideo.swf?videoPath=http://www.boonespooner.com/videos/Final_Vintage.mov&previewImage=http://www.boonespooner.com/videos/Final_Vintage.jpg" type="application/x-shockwave-flash" wmode="opaque" allowfullscreen="true" bgcolor="#000000" width="785" height="850"></embed>
+		</object>
+		<div class="video_tag">
+			<div class="mediaplayer">
+				<video width="785" height="850" preload="metadata" controls="controls" poster="http://www.boonespooner.com/videos/Final_Vintage.jpg">
+					<source src="http://www.boonespooner.com/videos/Final_Vintage.mov" />
+					<div class="fallback"></div>
+				</video>
+			</div>
+		</div>
+	</div>
+<br />
+<i>Credits:<br />
+Boone Spooner - Animation, UX Design<br />
+Garrett Olinger - UI / UX Design, Visual Design</i>		
+	</div>
+  </div>
+</body>
+</html>
