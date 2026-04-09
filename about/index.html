@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Boone Spooner</title>
-  <meta name="description" content="Boone Spooner is a product manager and composer. He has led products at Google, Caavo, and TuneIn, and is a composer and music producer.">
+  <meta name="description" content="Boone Spooner is a Group Product Manager at Google leading Android safety products across 3.5B+ devices. Previously Principal PM at Caavo and Sr. Director of Product at TuneIn. Composer and music producer.">
   <link rel="canonical" href="https://www.boonespooner.com/about/">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,10 +59,9 @@
       line-height: 1.85;
       color: #555;
     }
-
-    .bio p + p {
-      margin-top: 1.4rem;
-    }
+    .bio p + p { margin-top: 1.4rem; }
+    .bio a { color: #9990c0; text-decoration: none; }
+    .bio a:hover { color: #7770a0; }
 
     .section-label {
       display: block;
@@ -75,34 +74,106 @@
       margin-bottom: 1.25rem;
     }
 
-    .role-list {
+    /* Experience */
+    .exp-list {
       list-style: none;
-      font-size: 0.92rem;
-      font-weight: 300;
-      color: #555;
-      line-height: 1.85;
     }
-    .role-list li {
-      display: flex;
-      gap: 1.5rem;
-      padding: 0.6rem 0;
+    .exp-item {
+      padding: 1.5rem 0;
       border-bottom: 1px solid #f5f5f5;
-      flex-wrap: wrap;
     }
-    .role-list li:last-child { border-bottom: none; }
-    .role-company {
+    .exp-item:last-child { border-bottom: none; }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+    }
+    .exp-company {
+      font-size: 0.92rem;
       font-weight: 400;
       color: #333;
-      min-width: 120px;
     }
-    .role-title {
-      color: #888;
-      font-size: 0.85rem;
+    .exp-dates {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #bbb;
+      letter-spacing: 0.06em;
+    }
+    .exp-title {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: #999;
+      margin-bottom: 0.85rem;
+    }
+    .exp-bullets {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+    .exp-bullets li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.7;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 0.4rem;
+    }
+    .exp-bullets li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #d8d0ec;
+      font-weight: 300;
     }
 
+    /* Recognition */
+    .rec-list {
+      list-style: none;
+    }
+    .rec-list li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.7;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #f5f5f5;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .rec-list li:last-child { border-bottom: none; }
+    .rec-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #d8d0ec;
+    }
+    .rec-list a { color: #9990c0; text-decoration: none; }
+    .rec-list a:hover { color: #7770a0; }
+
+    /* Education */
+    .edu-list {
+      list-style: none;
+    }
+    .edu-list li {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: #666;
+      line-height: 1.7;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid #f5f5f5;
+    }
+    .edu-list li:last-child { border-bottom: none; }
+    .edu-degree {
+      font-weight: 400;
+      color: #444;
+    }
+
+    /* Contact */
     .contact-list {
       list-style: none;
-      margin-top: 0;
     }
     .contact-list li {
       padding: 0.6rem 0;
@@ -129,9 +200,8 @@
     }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
       .wrap { padding: 2rem 1.25rem 5rem; }
-      .role-list li { flex-direction: column; gap: 0.2rem; }
+      .exp-header { flex-direction: column; gap: 0; }
     }
   </style>
 </head>
@@ -148,31 +218,113 @@
 
   <div class="wrap">
     <div class="bio">
-      <p>I'm a product manager and composer based in the US. My work sits at the intersection of technology, design, and audio — building products that reach people at critical moments, and making music that does the same.</p>
-      <p>On the product side, I've led safety infrastructure at Google, including Android Earthquake Alerts — the world's largest earthquake detection network, using 2+ billion Android phones as seismometers — and Emergency Location Service, which delivers precise location to emergency services automatically when 911 is dialed. I co-authored a peer-reviewed paper on the earthquake system published in <em>Science</em> magazine.</p>
-      <p>Before Google, I was Principal Product Manager at Caavo, where I led the launch of both Caavo Classic and the Caavo Control Center — a new kind of universal remote that unified every device and streaming service in your living room. Prior to that, I was Senior Director of Product at TuneIn, where I launched TuneIn Premium, the NFL audio partnership, and the company's audiobook integration, among other things.</p>
-      <p>Earlier in my career I led design and product across Android, iOS, Google Home, Chromecast, Android Auto, Android TV, and Apple Watch at TuneIn — a period of intense platform expansion and one of the most prolific design stretches of my life.</p>
-      <p>Alongside product, I've worked as a composer and music producer throughout my career. My music is on Spotify.</p>
+      <p>Consumer product leader with 15+ years building products used by billions. I'm currently a Group Product Manager at Google leading the Android Peace of Mind vertical — Find Hub, Personal Safety, and Location Services — shipping AI-powered safety products across 98 countries on 3.5B+ devices.</p>
+      <p>I have a track record of turning zero-to-one ideas into platform-level investments: growing teams, partnering with regulators, OEMs, and cross-functional engineering organizations to deliver outsized impact. I'm a published co-author in <em>Science</em> magazine for the Android Earthquake Alerts system, a recipient of the Google Science Award, and my work has been featured in The New Yorker and on the front page of the San Francisco Chronicle.</p>
+      <p>Before Google, I was Principal PM at Caavo and Sr. Director of Product at TuneIn, where I launched TuneIn Premium and grew the business from ~$60M to ~$120M in annual revenue. Earlier in my career I was a designer, co-founder, and sound engineer — experiences that still shape how I think about product.</p>
     </div>
 
     <span class="section-label">Experience</span>
-    <ul class="role-list">
+    <ul class="exp-list">
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Google</span>
+          <span class="exp-dates">2018 – Present</span>
+        </div>
+        <div class="exp-title">Group Product Manager — Android Peace of Mind (Find Hub, Personal Safety, Location Services)</div>
+        <ul class="exp-bullets">
+          <li>Leading Find Hub, Personal Safety, and Android Location across phones, watches, and Pixel devices — managing 5+ PMs and a cross-functional org of ~80 engineers, 6 designers, marketing, PR, and legal.</li>
+          <li>Led launch of Find Hub network and People Location Sharing, growing MAU to ~70M and reducing device find times from ~25 minutes to 5 minutes through Bluetooth network optimizations.</li>
+          <li>Drove BT tracker ecosystem from 0 to 6M tracked tags, establishing Find Hub as Android's answer to Apple's Find My.</li>
+          <li>Conceived and launched the world's largest earthquake detection and alerting system, covering 98 countries and ~3.5B Android devices using on-device accelerometers and Bayesian ML models. Published co-author in <em>Science</em> magazine; Popular Science Top 100 Inventions (2020).</li>
+          <li>Grew Personal Safety active devices from ~7M to 834M by designing and executing an OEM partnerships strategy distributing the app across the Android ecosystem.</li>
+          <li>Founded Android Theft Detection, using AI motion models to instantly lock screens during snatch events.</li>
+          <li>Led critical launch of Air Raid Alerts for Ukraine, delivering 6B+ notifications during the conflict.</li>
+          <li>Expanded Emergency Location Service (ELS) coverage 3x to ~1B users at 99.99% uptime; launched enhanced data pipelines for first responders including medical info, crash status, AED locations, and live video.</li>
+          <li>Shipped Fall Detection, Car Crash Detection, and Loss of Pulse Detection on Pixel Watch; led Satellite SOS emergency flow on Pixel phones and watches (Google P&amp;D Tech Impacts Award).</li>
+          <li>Led U.S. rollout of Exposure Notifications during COVID-19.</li>
+          <li>Partnered with Apple to co-develop and launch Unwanted Tracking Alerts, protecting users from unknown BT tracker stalking.</li>
+          <li>Represent Google as lead safety spokesperson to the FCC, White House, EENA, NENA, and international crisis conferences.</li>
+        </ul>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">ExperienceFlow.ai</span>
+          <span class="exp-dates">2024 – 2025</span>
+        </div>
+        <div class="exp-title">Product Advisor</div>
+        <ul class="exp-bullets">
+          <li>Developed product strategy and authored PRD defining launch requirements for v1 pilot with enterprise partners.</li>
+          <li>Advised CEO, CTO, and CPO on product direction, development priorities, and go-to-market for an AI-powered experience platform.</li>
+        </ul>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Caavo</span>
+          <span class="exp-dates">2017 – 2018</span>
+        </div>
+        <div class="exp-title">Principal Product Manager</div>
+        <ul class="exp-bullets">
+          <li>Owned product roadmap for an innovative TV platform integrating ML, AI, and voice assistants (Alexa, Google Home) for unified home media experiences.</li>
+          <li>Led vision and launch of the company's first iOS, Android, and Web apps; designed the "Recommended Watch" content algorithm aggregating across all streaming platforms.</li>
+          <li>Established agile processes across SF and Bangalore teams, improving development velocity and cross-site collaboration.</li>
+        </ul>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">TuneIn</span>
+          <span class="exp-dates">2010 – 2017</span>
+        </div>
+        <div class="exp-title">Senior Director of Product</div>
+        <ul class="exp-bullets">
+          <li>Led product team to ~200% YOY growth, reaching 60M+ MAU; built and managed a team of PMs, a project manager, and performance marketing managers across Android, iOS, and Web.</li>
+          <li>Developed and launched TuneIn Premium (NFL, MLB, NBA, music, audiobooks), roughly doubling annual revenue from ~$60M to ~$120M.</li>
+          <li>Integrated programmatic ad networks into mobile products, driving 3.5x daily revenue growth.</li>
+          <li>Launched cross-functional partnerships with Chromecast, Android Auto, Apple CarPlay, Android TV, and automotive partners including Mercedes, Volvo, and Nissan.</li>
+        </ul>
+      </li>
+
+      <li class="exp-item">
+        <div class="exp-header">
+          <span class="exp-company">Earlier Career</span>
+          <span class="exp-dates">2002 – 2010</span>
+        </div>
+        <div class="exp-title">Co-Founder, Colligy · Founder, Oak &amp; Alder · Partner, Flying Kitchen Productions · Manager &amp; Sound Engineer, SF Soundworks</div>
+      </li>
+
+    </ul>
+
+    <span class="section-label">Recognition</span>
+    <ul class="rec-list">
+      <li>Co-author, <a href="https://www.science.org/doi/10.1126/science.ads4779" target="_blank" rel="noopener">"Global earthquake detection and warning using Android phones"</a> — <em>Science</em> magazine cover story</li>
+      <li>Popular Science Top 100 Inventions, 2020</li>
+      <li>Google Science Award recipient</li>
+      <li>Google P&amp;D Tech Impacts Award — Pixel Satellite SOS</li>
+      <li>Google Patents — Theft Detection and Earthquake Alerts</li>
+      <li>Featured: The New Yorker (Technology Review), San Francisco Chronicle (front page)</li>
+    </ul>
+
+    <span class="section-label">Education</span>
+    <ul class="edu-list">
       <li>
-        <span class="role-company">Google</span>
-        <span class="role-title">Product Manager, Android Safety — Earthquake Alerts, Emergency Location Service</span>
+        <span class="edu-degree">B.A. English, Honors Literature; Minor in Music Performance</span><br>
+        University of California, Santa Barbara
       </li>
       <li>
-        <span class="role-company">Caavo</span>
-        <span class="role-title">Principal Product Manager — Caavo Classic, Control Center</span>
-      </li>
-      <li>
-        <span class="role-company">TuneIn</span>
-        <span class="role-title">Senior Director of Product — Premium, NFL, Audiobooks, Device Integrations</span>
+        <span class="edu-degree">M.A. Political Science (in progress)</span><br>
+        San Francisco State University
       </li>
     </ul>
 
     <span class="section-label">Contact</span>
     <ul class="contact-list">
+      <li>
+        <span class="contact-label">Email</span>
+        <a href="mailto:boonespooner@gmail.com">boonespooner@gmail.com</a>
+      </li>
       <li>
         <span class="contact-label">LinkedIn</span>
         <a href="https://www.linkedin.com/in/boonespooner/" target="_blank" rel="noopener">linkedin.com/in/boonespooner</a>
@@ -189,8 +341,8 @@
 
     <span class="section-label">Music</span>
     <div class="bio">
-      <p>Music has been part of my life from the beginning. My father is <a href="https://open.spotify.com/artist/7zfhej6FnVXN9LIXs6dcoK" target="_blank" rel="noopener" style="color: #9990c0; text-decoration: none;">Bill Spooner</a>, co-founder and guitarist of <a href="https://open.spotify.com/artist/7zfhej6FnVXN9LIXs6dcoK" target="_blank" rel="noopener" style="color: #9990c0; text-decoration: none;">The Tubes</a> — the iconic San Francisco rock band known for their theatrical live shows and records including <em>She's a Beauty</em> and <em>Talk to Ya Later</em>. Growing up around that world shaped how I think about performance, storytelling, and the relationship between an artist and an audience.</p>
-      <p>I've carried that forward in my own work as a composer and producer. My music is available on <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener" style="color: #9990c0; text-decoration: none;">Spotify</a>.</p>
+      <p>Music has been part of my life from the beginning. My father is <a href="https://open.spotify.com/artist/7zfhej6FnVXN9LIXs6dcoK" target="_blank" rel="noopener">Bill Spooner</a>, co-founder and guitarist of <a href="https://open.spotify.com/artist/7zfhej6FnVXN9LIXs6dcoK" target="_blank" rel="noopener">The Tubes</a> — the iconic San Francisco rock band known for their theatrical live shows and records including <em>She's a Beauty</em> and <em>Talk to Ya Later</em>. Growing up around that world shaped how I think about performance, storytelling, and the relationship between an artist and an audience.</p>
+      <p>I've carried that forward in my own work as a composer and producer. My music is available on <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener">Spotify</a>.</p>
     </div>
 
   </div>
