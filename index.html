@@ -101,11 +101,15 @@
       clip: rect(0,0,0,0);
       white-space: nowrap;
     }
+
+    @media (max-width: 600px) and (orientation: portrait) {
+      .surname { display: block; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Boone Spooner</h1>
+    <h1>Boone <span class="surname">Spooner</span></h1>
     <p class="subtitle">
       <a href="/music-reel/">reel</a>
       <span class="sep">|</span>
