@@ -124,6 +124,20 @@
       line-height: 1.7;
     }
 
+    .video-wrap {
+      position: relative;
+      padding-top: 56.25%;
+      margin: 2.5rem 0;
+      background: #000;
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
     @media (max-width: 600px) {
       h1 { font-size: 1.8rem; }
       .wrap { padding: 2rem 1.25rem 5rem; }
@@ -150,6 +164,10 @@
       <p>Car Crash Detection is a safety feature built into Pixel phones that uses the device's sensors to detect if you've been in a serious car crash — and automatically calls emergency services if you're unable to respond. I led this as part of the Personal Safety product suite within Android Peace of Mind.</p>
 
       <img src="https://img.mezha.ua/mezhaprod/system/MediaPhoto/photo/g/o/36601/google-pixel-car-crash-detection-2.jpg" alt="Pixel Car Crash Detection" loading="lazy">
+
+      <div class="video-wrap">
+        <iframe src="https://www.youtube.com/embed/cArCizOqIug" title="Pixel Car Crash Detection" allowfullscreen></iframe>
+      </div>
 
       <b>How It Works</b>
       <p>Car Crash Detection uses a combination of the Pixel's accelerometer, microphone, and location data to identify the patterns associated with a serious vehicular collision — the sudden deceleration, the sounds of impact, and the environmental context of being in a moving vehicle. When a crash is detected, the phone plays a loud alarm and prompts the user to confirm they're okay. If there's no response within a short window, it automatically calls 911 and shares the user's location with emergency services.</p>
