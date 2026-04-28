@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://www.boonespooner.com/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
 
-  <!-- Open Graph (Facebook, LinkedIn, iMessage previews) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.boonespooner.com/">
   <meta property="og:title" content="Boone Spooner — Product Manager, Composer & Music Producer">
@@ -31,11 +31,12 @@
     "name": "Boone Spooner",
     "url": "https://www.boonespooner.com",
     "sameAs": [
-      "https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl"
+      "https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl",
+      "https://www.linkedin.com/in/boonespooner/"
     ],
     "jobTitle": "Group Product Manager",
     "description": "Group Product Manager at Google leading Android Peace of Mind — Find Hub, Personal Safety, and Location Services across 3.5B+ devices in 98 countries. Co-author in Science magazine for Android Earthquake Alerts. Previously Principal PM at Caavo and Senior Director of Product at TuneIn.",
-    "knowsAbout": ["Product Management", "UX Design", "Music Production", "Composition", "Android", "Consumer Technology"]
+    "knowsAbout": ["Product Management", "UX Design", "Music Production", "Composition", "Android", "Consumer Technology", "Emergency Location Service", "Find Hub", "Personal Safety"]
   }
   </script>
 
@@ -46,18 +47,26 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     }
 
-    .container {
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
       text-align: center;
       user-select: none;
+      padding: 2rem;
     }
 
     h1 {
@@ -68,7 +77,7 @@
       -webkit-text-stroke: 1.5px #c0b8d8;
       text-transform: uppercase;
       line-height: 1;
-      margin-bottom: 0.4em;
+      margin-bottom: 0.5em;
     }
 
     .subtitle {
@@ -76,6 +85,7 @@
       font-weight: 300;
       letter-spacing: 0.12em;
       color: #bbb;
+      margin-bottom: 1.2em;
     }
 
     .subtitle a {
@@ -84,22 +94,201 @@
       transition: color 0.2s;
     }
 
-    .subtitle a:hover {
-      color: #9990c0;
+    .subtitle a:hover { color: #9990c0; }
+
+    .sep { margin: 0 0.5em; }
+
+    .tagline {
+      font-size: clamp(0.7rem, 1.5vw, 0.82rem);
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #ccc;
     }
 
-    .sep {
-      margin: 0 0.5em;
-    }
-
-    /* Visually hidden text for SEO — readable by crawlers, invisible to users */
-    .seo-context {
+    .scroll-hint {
       position: absolute;
-      width: 1px;
-      height: 1px;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #d8d4e8;
+      animation: bob 2.4s ease-in-out infinite;
+      cursor: default;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+      50% { transform: translateX(-50%) translateY(5px); opacity: 1; }
+    }
+
+    /* ── Below fold ── */
+    .below-fold {
+      border-top: 1px solid #f0f0f0;
+      padding: 5rem 2rem 8rem;
+    }
+
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .bio {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #555;
+      margin-bottom: 3.5rem;
+      max-width: 680px;
+    }
+
+    .bio a {
+      color: #9990c0;
+      text-decoration: none;
+    }
+
+    .bio a:hover { color: #7770a0; }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      gap: 2.5rem 4rem;
+      flex-wrap: wrap;
+      margin-bottom: 4.5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 200;
+      color: #c0b8d8;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.67rem;
+      font-weight: 300;
+      color: #bbb;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+
+    /* Section label */
+    .section-label {
+      display: block;
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ccc;
+      margin-bottom: 1.75rem;
+    }
+
+    /* Featured grid */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .feat-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .feat-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
+      background: #f5f5f5;
+      margin-bottom: 0.65rem;
+    }
+
+    .feat-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.2s;
+    }
+
+    .feat-card:hover .feat-thumb img { opacity: 0.82; }
+
+    .feat-title {
+      font-size: 0.84rem;
+      font-weight: 400;
+      color: #333;
+      margin-bottom: 0.25rem;
+      transition: color 0.2s;
+    }
+
+    .feat-card:hover .feat-title { color: #9990c0; }
+
+    .feat-desc {
+      font-size: 0.74rem;
+      font-weight: 300;
+      color: #aaa;
+      line-height: 1.55;
+    }
+
+    .view-all {
+      display: inline-block;
+      font-size: 0.67rem;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #c0b8d8;
+      text-decoration: none;
+      margin-top: 0.5rem;
+    }
+
+    .view-all:hover { color: #9990c0; }
+
+    /* Music strip */
+    .music-strip {
+      margin-top: 4.5rem;
+      padding-top: 3.5rem;
+      border-top: 1px solid #f0f0f0;
+      display: flex;
+      align-items: baseline;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .music-label {
+      font-size: 0.67rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #ccc;
+      flex-shrink: 0;
+    }
+
+    .music-bio {
+      font-size: 0.84rem;
+      font-weight: 300;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    .music-bio a {
+      color: #9990c0;
+      text-decoration: none;
+    }
+
+    .music-bio a:hover { color: #7770a0; }
+
+    @media (max-width: 600px) {
+      .featured-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .stats { gap: 2rem 3rem; }
+      .below-fold { padding: 3.5rem 1.25rem 6rem; }
+      .music-strip { flex-direction: column; gap: 0.75rem; }
     }
 
     @media (max-width: 600px) and (orientation: portrait) {
@@ -108,7 +297,9 @@
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
     <h1>Boone <span class="surname">Spooner</span></h1>
     <p class="subtitle">
       <a href="/music-reel/">reel</a>
@@ -119,16 +310,80 @@
       <span class="sep">|</span>
       <a href="/about/">about</a>
     </p>
-  </div>
+    <p class="tagline">Group Product Manager · Google &nbsp;·&nbsp; Composer &amp; Producer</p>
+    <div class="scroll-hint">↓ &nbsp; scroll</div>
+  </section>
 
-  <!-- Crawlable context for search engines -->
-  <p class="seo-context">
-    Boone Spooner is a product manager and composer. He led Android Safety products at Google,
-    including Android Earthquake Alerts and Emergency Location Service. He was Principal Product
-    Manager at Caavo, where he launched the Caavo Classic and Caavo Control Center. He served as
-    Senior Director of Product at TuneIn, where he launched TuneIn Premium, the NFL audio
-    partnership, and audiobook integrations. He is also a composer and music producer with music
-    available on Spotify.
-  </p>
+  <!-- Below fold -->
+  <section class="below-fold" id="about">
+    <div class="wrap">
+
+      <p class="bio">Consumer product leader with 15+ years building products used by billions. I'm currently a Group Product Manager at Google leading <a href="/portfolio/Google-Find-Hub/">Find Hub</a>, <a href="/portfolio/Android-Personal-Safety/">Personal Safety</a>, and Location Services — shipping AI-powered safety products across 98 countries on 3.5B+ Android devices. Before Google, I was Principal PM at <a href="/portfolio/Caavo/">Caavo</a> and Senior Director of Product at <a href="/portfolio/TuneIn-Premium/">TuneIn</a>, where I launched TuneIn Premium and grew the business from ~$60M to ~$120M in annual revenue. I'm also a co-author in <em>Science</em> magazine and a composer and music producer.</p>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">3.5B+</div>
+          <div class="stat-label">Android devices</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">98</div>
+          <div class="stat-label">Countries</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">800M+</div>
+          <div class="stat-label">Personal Safety installs</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">FDA</div>
+          <div class="stat-label">First cardiac arrest detection</div>
+        </div>
+      </div>
+
+      <span class="section-label">Selected Work</span>
+
+      <div class="featured-grid">
+        <a href="/portfolio/Google-Find-Hub/" class="feat-card">
+          <div class="feat-thumb">
+            <img src="https://9to5google.com/wp-content/uploads/sites/4/2025/05/Google-Find-Hub-cover.jpg?quality=82&strip=all" alt="Google Find Hub" loading="lazy">
+          </div>
+          <div class="feat-title">Google Find Hub</div>
+          <div class="feat-desc">Android's platform for locating people, devices, and accessories — 1B+ devices in the detection network, 6M+ tracked tags.</div>
+        </a>
+
+        <a href="/portfolio/Pixel-Watch-Loss-of-Pulse-Detection/" class="feat-card">
+          <div class="feat-thumb">
+            <img src="https://techcrunch.com/wp-content/uploads/2024/08/loss-of-pulse.jpg?w=1024" alt="Pixel Watch Loss of Pulse Detection" loading="lazy">
+          </div>
+          <div class="feat-title">Pixel Watch Loss of Pulse Detection</div>
+          <div class="feat-desc">The first FDA-cleared cardiac arrest detection feature on any smartwatch. Published in <em>Nature</em>. Now available in 16 countries.</div>
+        </a>
+
+        <a href="/portfolio/Android-Earthquake-Alerts/" class="feat-card">
+          <div class="feat-thumb">
+            <img src="https://www.androidauthority.com/wp-content/uploads/2022/05/Google-IO-2022-earthquake-detection.jpg" alt="Android Earthquake Alerts" loading="lazy">
+          </div>
+          <div class="feat-title">Android Earthquake Alerts</div>
+          <div class="feat-desc">The world's largest earthquake detection network — 2B+ Android phones acting as seismometers across 98 countries. Published in <em>Science</em>.</div>
+        </a>
+
+        <a href="/portfolio/TuneIn-Premium/" class="feat-card">
+          <div class="feat-thumb">
+            <img src="https://photos5.appleinsider.com/archive/gallery/14009-9202-screen480x480-xl.jpg" alt="TuneIn Premium" loading="lazy">
+          </div>
+          <div class="feat-title">TuneIn Premium</div>
+          <div class="feat-desc">The subscription launch that bundled live sports, audiobooks, and ad-free radio — and roughly doubled TuneIn's annual revenue.</div>
+        </a>
+      </div>
+
+      <a href="/portfolio/" class="view-all">View all work &rarr;</a>
+
+      <div class="music-strip">
+        <span class="music-label">Music</span>
+        <p class="music-bio">Composer and producer. My father is <a href="https://open.spotify.com/artist/7zfhej6FnVXN9LIXs6dcoK" target="_blank" rel="noopener">Bill Spooner</a>, co-founder of <a href="https://en.wikipedia.org/wiki/The_Tubes" target="_blank" rel="noopener">The Tubes</a>. My own music is on <a href="https://open.spotify.com/artist/6SIIdiMFuPQ2LXSYsS6Jdl" target="_blank" rel="noopener">Spotify</a>. Also see the <a href="/music-reel/">reel</a>.</p>
+      </div>
+
+    </div>
+  </section>
+
 </body>
 </html>
