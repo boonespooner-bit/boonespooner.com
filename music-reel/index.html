@@ -56,7 +56,7 @@
     nav a.active { text-decoration: underline; text-underline-offset: 4px; }
 
     .intro {
-      max-width: 860px;
+      max-width: 820px;
       margin: 0 auto;
       padding: 1.5rem 2rem 0.5rem;
       display: flex;
@@ -92,24 +92,40 @@
 
     .spotify-btn:hover { background: #c0b8d8; color: #fff; }
 
-    .cover-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
-      gap: 5px;
-      max-width: 860px;
-      margin: 1.25rem auto 0;
-      padding: 0 2rem;
+    .track-list {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 1.25rem 2rem 4rem;
     }
+
+    .track {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.4rem 0.6rem;
+      border-bottom: 1px solid #f3f3f3;
+      scroll-margin-top: 90px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .track:last-child { border-bottom: none; }
+    .track.playing { background: #f7f5fb; }
+    .track.playing .track-title { color: #9990c0; }
 
     .cover {
       position: relative;
-      aspect-ratio: 1;
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
       padding: 0;
       border: none;
       background: #f5f5f5;
       cursor: pointer;
       overflow: hidden;
       display: block;
+      border-radius: 3px;
     }
 
     .cover img {
@@ -117,10 +133,8 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease, opacity 0.2s;
+      transition: opacity 0.2s;
     }
-
-    .cover:hover img { transform: scale(1.06); }
 
     .cover .ov {
       position: absolute;
@@ -133,35 +147,13 @@
       transition: opacity 0.2s, background 0.2s;
     }
 
-    .cover:hover .ov { opacity: 1; background: rgba(44, 34, 64, 0.32); }
+    .cover:hover .ov { opacity: 1; background: rgba(44, 34, 64, 0.38); }
 
-    .cover.playing { outline: 3px solid #c0b8d8; outline-offset: -3px; }
-    .cover.playing .ov { opacity: 1; background: rgba(44, 34, 64, 0.4); }
-    .cover.playing .ov svg { animation: pulse 1.4s ease-in-out infinite; }
+    .track.playing .cover { outline: 2px solid #c0b8d8; outline-offset: -2px; }
+    .track.playing .cover .ov { opacity: 1; background: rgba(44, 34, 64, 0.45); }
+    .track.playing .cover .ov svg { animation: pulse 1.4s ease-in-out infinite; }
 
     @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.18); } }
-
-    .track-list {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2rem 2rem 4rem;
-    }
-
-    .track {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 1rem;
-      padding: 0.85rem 0.75rem;
-      border-bottom: 1px solid #f0f0f0;
-      scroll-margin-top: 90px;
-      border-radius: 4px;
-      transition: background 0.3s;
-    }
-
-    .track:last-child { border-bottom: none; }
-    .track.playing { background: #f7f5fb; }
-    .track.playing .track-title { color: #9990c0; }
 
     .track-title {
       font-size: 0.82rem;
@@ -176,14 +168,13 @@
 
     audio {
       height: 28px;
-      width: 260px;
+      width: 230px;
       accent-color: #c0b8d8;
     }
 
     @media (max-width: 600px) {
-      .cover-grid { grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); padding: 0 1.25rem; }
-      .track { grid-template-columns: 1fr; gap: 0.4rem; }
-      audio { width: 100%; }
+      .track { grid-template-columns: auto 1fr; gap: 0.75rem; }
+      audio { grid-column: 1 / -1; width: 100%; }
     }
   </style>
 </head>
@@ -199,366 +190,363 @@
   </header>
 
   <div class="intro">
-    <p>A selection of tracks I've produced, mixed, and worked on &mdash; tap any cover to play, or browse the full list below.</p>
+    <p>A selection of tracks I've produced, mixed, and worked on &mdash; tap any cover to play.</p>
     <a href="https://open.spotify.com/playlist/1QeYwn8RQj2Gl2n0MFPK5d" target="_blank" rel="noopener" class="spotify-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.494 17.318a.75.75 0 01-1.032.25c-2.827-1.727-6.39-2.118-10.586-1.161a.75.75 0 01-.334-1.463c4.592-1.048 8.532-.597 11.703 1.341a.75.75 0 01.249 1.033zm1.466-3.26a.937.937 0 01-1.288.308c-3.234-1.988-8.164-2.563-11.99-1.403a.937.937 0 01-.543-1.794c4.37-1.326 9.8-.683 13.513 1.6a.937.937 0 01.308 1.289zm.126-3.395c-3.878-2.303-10.276-2.514-13.981-1.391a1.124 1.124 0 11-.653-2.151c4.252-1.29 11.318-1.042 15.786 1.609a1.124 1.124 0 01-1.152 1.933z"/></svg>
       Open Reel on Spotify
     </a>
   </div>
 
-  <div class="cover-grid">
-    <button class="cover" data-audio="audio-1" title="Alanis Morissette – Hands Clean (iTunes Original)" aria-label="Play Alanis Morissette – Hands Clean (iTunes Original)">
-      <img src="/images/covers/1.png" alt="Alanis Morissette – Hands Clean (iTunes Original)" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-2" title="Beth Waters – This Little Piggy" aria-label="Play Beth Waters – This Little Piggy">
-      <img src="/images/covers/2.jpg" alt="Beth Waters – This Little Piggy" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-3" title="Beth Waters – White Dogs in the Moonlight" aria-label="Play Beth Waters – White Dogs in the Moonlight">
-      <img src="/images/covers/3.jpg" alt="Beth Waters – White Dogs in the Moonlight" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-4" title="Blown Cuda – You Will Feel Light" aria-label="Play Blown Cuda – You Will Feel Light">
-      <img src="/images/covers/4.jpg" alt="Blown Cuda – You Will Feel Light" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-5" title="Boone Spooner – I Could Change" aria-label="Play Boone Spooner – I Could Change">
-      <img src="/images/covers/5.svg" alt="Boone Spooner – I Could Change" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-6" title="Boone Spooner – The Farthest Thing" aria-label="Play Boone Spooner – The Farthest Thing">
-      <img src="/images/covers/6.svg" alt="Boone Spooner – The Farthest Thing" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-7" title="Cameron Ember – Valerie" aria-label="Play Cameron Ember – Valerie">
-      <img src="/images/covers/7.png" alt="Cameron Ember – Valerie" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-8" title="Death Angel – 5 Steps Of Freedom" aria-label="Play Death Angel – 5 Steps Of Freedom">
-      <img src="/images/covers/8.jpg" alt="Death Angel – 5 Steps Of Freedom" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-9" title="Death of a Party – Marissa 1 to 8" aria-label="Play Death of a Party – Marissa 1 to 8">
-      <img src="/images/covers/9.svg" alt="Death of a Party – Marissa 1 to 8" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-10" title="Dynamic – First Battle" aria-label="Play Dynamic – First Battle">
-      <img src="/images/covers/10.svg" alt="Dynamic – First Battle" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-11" title="Dynamic – The Bug" aria-label="Play Dynamic – The Bug">
-      <img src="/images/covers/11.svg" alt="Dynamic – The Bug" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-12" title="Elephone – Chump Change" aria-label="Play Elephone – Chump Change">
-      <img src="/images/covers/12.jpg" alt="Elephone – Chump Change" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-13" title="Elephone – Style Style" aria-label="Play Elephone – Style Style">
-      <img src="/images/covers/12.jpg" alt="Elephone – Style Style" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-14" title="Forest Sun – No Regrets" aria-label="Play Forest Sun – No Regrets">
-      <img src="/images/covers/14.jpg" alt="Forest Sun – No Regrets" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-15" title="James Riddle – I Don&#x27;t Want To Know" aria-label="Play James Riddle – I Don&#x27;t Want To Know">
-      <img src="/images/covers/15.svg" alt="James Riddle – I Don&#x27;t Want To Know" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-16" title="Love Not Dead – WPOD" aria-label="Play Love Not Dead – WPOD">
-      <img src="/images/covers/16.svg" alt="Love Not Dead – WPOD" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-17" title="Madelia – Asilomar" aria-label="Play Madelia – Asilomar">
-      <img src="/images/covers/17.svg" alt="Madelia – Asilomar" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-18" title="Madelia – Autumn" aria-label="Play Madelia – Autumn">
-      <img src="/images/covers/18.svg" alt="Madelia – Autumn" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-19" title="Madelia – Aways Away" aria-label="Play Madelia – Aways Away">
-      <img src="/images/covers/19.svg" alt="Madelia – Aways Away" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-20" title="Madelia – Cherry" aria-label="Play Madelia – Cherry">
-      <img src="/images/covers/20.svg" alt="Madelia – Cherry" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-21" title="Madelia – Chesapeake" aria-label="Play Madelia – Chesapeake">
-      <img src="/images/covers/21.svg" alt="Madelia – Chesapeake" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-22" title="Madelia – Chords" aria-label="Play Madelia – Chords">
-      <img src="/images/covers/22.svg" alt="Madelia – Chords" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-23" title="Madelia – Collapsing" aria-label="Play Madelia – Collapsing">
-      <img src="/images/covers/23.svg" alt="Madelia – Collapsing" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-24" title="Madelia – Redhead" aria-label="Play Madelia – Redhead">
-      <img src="/images/covers/24.svg" alt="Madelia – Redhead" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-25" title="Madelia – Sister" aria-label="Play Madelia – Sister">
-      <img src="/images/covers/25.svg" alt="Madelia – Sister" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-26" title="Madelia – The Compliment" aria-label="Play Madelia – The Compliment">
-      <img src="/images/covers/26.svg" alt="Madelia – The Compliment" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-27" title="Madelia – The Last Match" aria-label="Play Madelia – The Last Match">
-      <img src="/images/covers/27.svg" alt="Madelia – The Last Match" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-28" title="Madelia – Valentine" aria-label="Play Madelia – Valentine">
-      <img src="/images/covers/28.svg" alt="Madelia – Valentine" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-29" title="Madelia – Wither" aria-label="Play Madelia – Wither">
-      <img src="/images/covers/29.svg" alt="Madelia – Wither" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-30" title="Matt Bauer – Jordan In A Plastic Bag" aria-label="Play Matt Bauer – Jordan In A Plastic Bag">
-      <img src="/images/covers/30.jpg" alt="Matt Bauer – Jordan In A Plastic Bag" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-31" title="My Revolver – Ammunition" aria-label="Play My Revolver – Ammunition">
-      <img src="/images/covers/31.png" alt="My Revolver – Ammunition" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-32" title="Outline Kit – Hands" aria-label="Play Outline Kit – Hands">
-      <img src="/images/covers/32.svg" alt="Outline Kit – Hands" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-33" title="Pedalsped – Change" aria-label="Play Pedalsped – Change">
-      <img src="/images/covers/33.svg" alt="Pedalsped – Change" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-34" title="Pedalsped – Soldiers" aria-label="Play Pedalsped – Soldiers">
-      <img src="/images/covers/34.svg" alt="Pedalsped – Soldiers" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-35" title="Pedalsped – Space Song" aria-label="Play Pedalsped – Space Song">
-      <img src="/images/covers/35.svg" alt="Pedalsped – Space Song" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-36" title="Sam Kearney – Blushfire" aria-label="Play Sam Kearney – Blushfire">
-      <img src="/images/covers/36.svg" alt="Sam Kearney – Blushfire" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-37" title="Sam Kearney – Saturn" aria-label="Play Sam Kearney – Saturn">
-      <img src="/images/covers/37.svg" alt="Sam Kearney – Saturn" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-38" title="Steve Earle – The Revolution Starts Now" aria-label="Play Steve Earle – The Revolution Starts Now">
-      <img src="/images/covers/38.jpg" alt="Steve Earle – The Revolution Starts Now" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-39" title="Stratford 4 – Inner Sunset" aria-label="Play Stratford 4 – Inner Sunset">
-      <img src="/images/covers/39.jpg" alt="Stratford 4 – Inner Sunset" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-40" title="The Otherside – Dirty Devil" aria-label="Play The Otherside – Dirty Devil">
-      <img src="/images/covers/40.jpg" alt="The Otherside – Dirty Devil" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-41" title="Thistle – When It Rains" aria-label="Play Thistle – When It Rains">
-      <img src="/images/covers/41.svg" alt="Thistle – When It Rains" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-42" title="Thriving Ivory – Careless in November" aria-label="Play Thriving Ivory – Careless in November">
-      <img src="/images/covers/42.jpg" alt="Thriving Ivory – Careless in November" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-43" title="Thriving Ivory – Isabelle" aria-label="Play Thriving Ivory – Isabelle">
-      <img src="/images/covers/42.jpg" alt="Thriving Ivory – Isabelle" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-    <button class="cover" data-audio="audio-44" title="Thriving Ivory – Unhappy" aria-label="Play Thriving Ivory – Unhappy">
-      <img src="/images/covers/42.jpg" alt="Thriving Ivory – Unhappy" loading="lazy">
-      <span class="ov"><svg viewBox="0 0 24 24" width="30" height="30" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-    </button>
-  </div>
-
   <div class="track-list">
     <div class="track" id="track-1">
+      <button class="cover" data-audio="audio-1" title="Play Alanis Morissette – Hands Clean (iTunes Original)" aria-label="Play Alanis Morissette – Hands Clean (iTunes Original)">
+        <img src="/images/covers/1.png" alt="Alanis Morissette – Hands Clean (iTunes Original)" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Alanis Morissette &ndash; Hands Clean (iTunes Original)</span>
       <audio id="audio-1" controls preload="none"><source src="/music/Alanis%20Morrisette%20-%20Hands%20Clean.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-2">
+      <button class="cover" data-audio="audio-2" title="Play Beth Waters – This Little Piggy" aria-label="Play Beth Waters – This Little Piggy">
+        <img src="/images/covers/2.jpg" alt="Beth Waters – This Little Piggy" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Beth Waters &ndash; This Little Piggy</span>
       <audio id="audio-2" controls preload="none"><source src="/music/Beth%20Waters%20-%20This%20Little%20Piggy.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-3">
+      <button class="cover" data-audio="audio-3" title="Play Beth Waters – White Dogs in the Moonlight" aria-label="Play Beth Waters – White Dogs in the Moonlight">
+        <img src="/images/covers/3.jpg" alt="Beth Waters – White Dogs in the Moonlight" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Beth Waters &ndash; White Dogs in the Moonlight</span>
       <audio id="audio-3" controls preload="none"><source src="/music/Beth%20Waters%20-%20White%20Dogs%20in%20the%20Moonlight.mp3.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-4">
+      <button class="cover" data-audio="audio-4" title="Play Blown Cuda – You Will Feel Light" aria-label="Play Blown Cuda – You Will Feel Light">
+        <img src="/images/covers/4.jpg" alt="Blown Cuda – You Will Feel Light" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Blown Cuda &ndash; You Will Feel Light</span>
       <audio id="audio-4" controls preload="none"><source src="/music/Blown%20Cuda%20-%20You%20Will%20Feel%20Light.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-5">
+      <button class="cover" data-audio="audio-5" title="Play Boone Spooner – I Could Change" aria-label="Play Boone Spooner – I Could Change">
+        <img src="/images/covers/5.svg" alt="Boone Spooner – I Could Change" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Boone Spooner &ndash; I Could Change</span>
       <audio id="audio-5" controls preload="none"><source src="/music/I%20Could%20Change.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-6">
+      <button class="cover" data-audio="audio-6" title="Play Boone Spooner – The Farthest Thing" aria-label="Play Boone Spooner – The Farthest Thing">
+        <img src="/images/covers/6.svg" alt="Boone Spooner – The Farthest Thing" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Boone Spooner &ndash; The Farthest Thing</span>
       <audio id="audio-6" controls preload="none"><source src="/music/Boone%20Spooner_The%20Farthest%20Thing.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-7">
+      <button class="cover" data-audio="audio-7" title="Play Cameron Ember – Valerie" aria-label="Play Cameron Ember – Valerie">
+        <img src="/images/covers/7.png" alt="Cameron Ember – Valerie" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Cameron Ember &ndash; Valerie</span>
       <audio id="audio-7" controls preload="none"><source src="/music/Cameron%20Ember%20-%20Valerie.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-8">
+      <button class="cover" data-audio="audio-8" title="Play Death Angel – 5 Steps Of Freedom" aria-label="Play Death Angel – 5 Steps Of Freedom">
+        <img src="/images/covers/8.jpg" alt="Death Angel – 5 Steps Of Freedom" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Death Angel &ndash; 5 Steps Of Freedom</span>
       <audio id="audio-8" controls preload="none"><source src="/music/Death%20Angel%20-%205%20Steps%20Of%20Freedom.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-9">
+      <button class="cover" data-audio="audio-9" title="Play Death of a Party – Marissa 1 to 8" aria-label="Play Death of a Party – Marissa 1 to 8">
+        <img src="/images/covers/9.svg" alt="Death of a Party – Marissa 1 to 8" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Death of a Party &ndash; Marissa 1 to 8</span>
       <audio id="audio-9" controls preload="none"><source src="/music/Death%20of%20a%20Party%20-%20Marissa%201%20to%208.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-10">
+      <button class="cover" data-audio="audio-10" title="Play Dynamic – First Battle" aria-label="Play Dynamic – First Battle">
+        <img src="/images/covers/10.svg" alt="Dynamic – First Battle" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Dynamic &ndash; First Battle</span>
       <audio id="audio-10" controls preload="none"><source src="/music/Dynamic%20-%20First%20Battle.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-11">
+      <button class="cover" data-audio="audio-11" title="Play Dynamic – The Bug" aria-label="Play Dynamic – The Bug">
+        <img src="/images/covers/11.svg" alt="Dynamic – The Bug" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Dynamic &ndash; The Bug</span>
       <audio id="audio-11" controls preload="none"><source src="/music/Dynamic%20-%20The%20Bug.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-12">
+      <button class="cover" data-audio="audio-12" title="Play Elephone – Chump Change" aria-label="Play Elephone – Chump Change">
+        <img src="/images/covers/12.jpg" alt="Elephone – Chump Change" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Elephone &ndash; Chump Change</span>
       <audio id="audio-12" controls preload="none"><source src="/music/Elephone%20-%20Chump%20Change.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-13">
+      <button class="cover" data-audio="audio-13" title="Play Elephone – Style Style" aria-label="Play Elephone – Style Style">
+        <img src="/images/covers/12.jpg" alt="Elephone – Style Style" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Elephone &ndash; Style Style</span>
       <audio id="audio-13" controls preload="none"><source src="/music/Elephone%20-%20Style%20Style.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-14">
+      <button class="cover" data-audio="audio-14" title="Play Forest Sun – No Regrets" aria-label="Play Forest Sun – No Regrets">
+        <img src="/images/covers/14.jpg" alt="Forest Sun – No Regrets" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Forest Sun &ndash; No Regrets</span>
       <audio id="audio-14" controls preload="none"><source src="/music/Forest%20Sun%20-%20No%20Regrets.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-15">
+      <button class="cover" data-audio="audio-15" title="Play James Riddle – I Don&#x27;t Want To Know" aria-label="Play James Riddle – I Don&#x27;t Want To Know">
+        <img src="/images/covers/15.svg" alt="James Riddle – I Don&#x27;t Want To Know" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">James Riddle &ndash; I Don&#x27;t Want To Know</span>
       <audio id="audio-15" controls preload="none"><source src="/music/James%20Riddle%20-%20I%20Don%27t%20Want%20To%20Know.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-16">
+      <button class="cover" data-audio="audio-16" title="Play Love Not Dead – WPOD" aria-label="Play Love Not Dead – WPOD">
+        <img src="/images/covers/16.svg" alt="Love Not Dead – WPOD" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Love Not Dead &ndash; WPOD</span>
       <audio id="audio-16" controls preload="none"><source src="/music/Love%20Not%20Dead%20-%20WPOD.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-17">
+      <button class="cover" data-audio="audio-17" title="Play Madelia – Asilomar" aria-label="Play Madelia – Asilomar">
+        <img src="/images/covers/17.svg" alt="Madelia – Asilomar" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Asilomar</span>
       <audio id="audio-17" controls preload="none"><source src="/music/Asilomar060108.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-18">
+      <button class="cover" data-audio="audio-18" title="Play Madelia – Autumn" aria-label="Play Madelia – Autumn">
+        <img src="/images/covers/18.svg" alt="Madelia – Autumn" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Autumn</span>
       <audio id="audio-18" controls preload="none"><source src="/music/01%20Autumn.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-19">
+      <button class="cover" data-audio="audio-19" title="Play Madelia – Aways Away" aria-label="Play Madelia – Aways Away">
+        <img src="/images/covers/19.svg" alt="Madelia – Aways Away" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Aways Away</span>
       <audio id="audio-19" controls preload="none"><source src="/music/Awaysaway052708.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-20">
+      <button class="cover" data-audio="audio-20" title="Play Madelia – Cherry" aria-label="Play Madelia – Cherry">
+        <img src="/images/covers/20.svg" alt="Madelia – Cherry" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Cherry</span>
       <audio id="audio-20" controls preload="none"><source src="/music/CherryNewMix.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-21">
+      <button class="cover" data-audio="audio-21" title="Play Madelia – Chesapeake" aria-label="Play Madelia – Chesapeake">
+        <img src="/images/covers/21.svg" alt="Madelia – Chesapeake" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Chesapeake</span>
       <audio id="audio-21" controls preload="none"><source src="/music/03%20Chesapeake_082108.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-22">
+      <button class="cover" data-audio="audio-22" title="Play Madelia – Chords" aria-label="Play Madelia – Chords">
+        <img src="/images/covers/22.svg" alt="Madelia – Chords" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Chords</span>
       <audio id="audio-22" controls preload="none"><source src="/music/Madelia%20-%20Chords.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-23">
+      <button class="cover" data-audio="audio-23" title="Play Madelia – Collapsing" aria-label="Play Madelia – Collapsing">
+        <img src="/images/covers/23.svg" alt="Madelia – Collapsing" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Collapsing</span>
       <audio id="audio-23" controls preload="none"><source src="/music/CollapsingNew.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-24">
+      <button class="cover" data-audio="audio-24" title="Play Madelia – Redhead" aria-label="Play Madelia – Redhead">
+        <img src="/images/covers/24.svg" alt="Madelia – Redhead" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Redhead</span>
       <audio id="audio-24" controls preload="none"><source src="/music/06%20Redhead_020308.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-25">
+      <button class="cover" data-audio="audio-25" title="Play Madelia – Sister" aria-label="Play Madelia – Sister">
+        <img src="/images/covers/25.svg" alt="Madelia – Sister" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Sister</span>
       <audio id="audio-25" controls preload="none"><source src="/music/Sister%20Mix%201.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-26">
+      <button class="cover" data-audio="audio-26" title="Play Madelia – The Compliment" aria-label="Play Madelia – The Compliment">
+        <img src="/images/covers/26.svg" alt="Madelia – The Compliment" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; The Compliment</span>
       <audio id="audio-26" controls preload="none"><source src="/music/Madelia%20-%20The%20Compliment.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-27">
+      <button class="cover" data-audio="audio-27" title="Play Madelia – The Last Match" aria-label="Play Madelia – The Last Match">
+        <img src="/images/covers/27.svg" alt="Madelia – The Last Match" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; The Last Match</span>
       <audio id="audio-27" controls preload="none"><source src="/music/Madelia%20-%20The%20Last%20Match.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-28">
+      <button class="cover" data-audio="audio-28" title="Play Madelia – Valentine" aria-label="Play Madelia – Valentine">
+        <img src="/images/covers/28.svg" alt="Madelia – Valentine" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Valentine</span>
       <audio id="audio-28" controls preload="none"><source src="/music/07%20Valentine_051808.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-29">
+      <button class="cover" data-audio="audio-29" title="Play Madelia – Wither" aria-label="Play Madelia – Wither">
+        <img src="/images/covers/29.svg" alt="Madelia – Wither" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Madelia &ndash; Wither</span>
       <audio id="audio-29" controls preload="none"><source src="/music/Madelia%20-%20Wither.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-30">
+      <button class="cover" data-audio="audio-30" title="Play Matt Bauer – Jordan In A Plastic Bag" aria-label="Play Matt Bauer – Jordan In A Plastic Bag">
+        <img src="/images/covers/30.jpg" alt="Matt Bauer – Jordan In A Plastic Bag" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Matt Bauer &ndash; Jordan In A Plastic Bag</span>
       <audio id="audio-30" controls preload="none"><source src="/music/Matt%20Bauer%20-%20Jordan%20In%20A%20Plastic%20Bag.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-31">
+      <button class="cover" data-audio="audio-31" title="Play My Revolver – Ammunition" aria-label="Play My Revolver – Ammunition">
+        <img src="/images/covers/31.png" alt="My Revolver – Ammunition" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">My Revolver &ndash; Ammunition</span>
       <audio id="audio-31" controls preload="none"><source src="/music/My%20Revolver%20-%20Ammunition.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-32">
+      <button class="cover" data-audio="audio-32" title="Play Outline Kit – Hands" aria-label="Play Outline Kit – Hands">
+        <img src="/images/covers/32.svg" alt="Outline Kit – Hands" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Outline Kit &ndash; Hands</span>
       <audio id="audio-32" controls preload="none"><source src="/music/Outline%20Kit%20-%20Hands.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-33">
+      <button class="cover" data-audio="audio-33" title="Play Pedalsped – Change" aria-label="Play Pedalsped – Change">
+        <img src="/images/covers/33.svg" alt="Pedalsped – Change" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Pedalsped &ndash; Change</span>
       <audio id="audio-33" controls preload="none"><source src="/music/Pedalsped%20-%20Change.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-34">
+      <button class="cover" data-audio="audio-34" title="Play Pedalsped – Soldiers" aria-label="Play Pedalsped – Soldiers">
+        <img src="/images/covers/34.svg" alt="Pedalsped – Soldiers" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Pedalsped &ndash; Soldiers</span>
       <audio id="audio-34" controls preload="none"><source src="/music/Pedalsped%20-%20Soldiers.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-35">
+      <button class="cover" data-audio="audio-35" title="Play Pedalsped – Space Song" aria-label="Play Pedalsped – Space Song">
+        <img src="/images/covers/35.svg" alt="Pedalsped – Space Song" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Pedalsped &ndash; Space Song</span>
       <audio id="audio-35" controls preload="none"><source src="/music/Pedalsped%20-%20Space%20Song.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-36">
+      <button class="cover" data-audio="audio-36" title="Play Sam Kearney – Blushfire" aria-label="Play Sam Kearney – Blushfire">
+        <img src="/images/covers/36.svg" alt="Sam Kearney – Blushfire" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Sam Kearney &ndash; Blushfire</span>
       <audio id="audio-36" controls preload="none"><source src="/music/Blushfire.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-37">
+      <button class="cover" data-audio="audio-37" title="Play Sam Kearney – Saturn" aria-label="Play Sam Kearney – Saturn">
+        <img src="/images/covers/37.svg" alt="Sam Kearney – Saturn" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Sam Kearney &ndash; Saturn</span>
       <audio id="audio-37" controls preload="none"><source src="/music/saturn%20boone%20%28master%29.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-38">
+      <button class="cover" data-audio="audio-38" title="Play Steve Earle – The Revolution Starts Now" aria-label="Play Steve Earle – The Revolution Starts Now">
+        <img src="/images/covers/38.jpg" alt="Steve Earle – The Revolution Starts Now" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Steve Earle &ndash; The Revolution Starts Now</span>
       <audio id="audio-38" controls preload="none"><source src="/music/Steve%20Earle%20-%20The%20Revolution%20Starts%20Now.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-39">
+      <button class="cover" data-audio="audio-39" title="Play Stratford 4 – Inner Sunset" aria-label="Play Stratford 4 – Inner Sunset">
+        <img src="/images/covers/39.jpg" alt="Stratford 4 – Inner Sunset" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Stratford 4 &ndash; Inner Sunset</span>
       <audio id="audio-39" controls preload="none"><source src="/music/Stratford%204%20-%20Inner%20Sunset.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-40">
+      <button class="cover" data-audio="audio-40" title="Play The Otherside – Dirty Devil" aria-label="Play The Otherside – Dirty Devil">
+        <img src="/images/covers/40.jpg" alt="The Otherside – Dirty Devil" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">The Otherside &ndash; Dirty Devil</span>
       <audio id="audio-40" controls preload="none"><source src="/music/The%20Otherside%20-%20Dirty%20Devil.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-41">
+      <button class="cover" data-audio="audio-41" title="Play Thistle – When It Rains" aria-label="Play Thistle – When It Rains">
+        <img src="/images/covers/41.svg" alt="Thistle – When It Rains" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Thistle &ndash; When It Rains</span>
       <audio id="audio-41" controls preload="none"><source src="/music/Thistle%20-%20When%20It%20Rains.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-42">
+      <button class="cover" data-audio="audio-42" title="Play Thriving Ivory – Careless in November" aria-label="Play Thriving Ivory – Careless in November">
+        <img src="/images/covers/42.jpg" alt="Thriving Ivory – Careless in November" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Thriving Ivory &ndash; Careless in November</span>
       <audio id="audio-42" controls preload="none"><source src="/music/Thriving_Ivory_-_Careless_in_November.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-43">
+      <button class="cover" data-audio="audio-43" title="Play Thriving Ivory – Isabelle" aria-label="Play Thriving Ivory – Isabelle">
+        <img src="/images/covers/42.jpg" alt="Thriving Ivory – Isabelle" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Thriving Ivory &ndash; Isabelle</span>
       <audio id="audio-43" controls preload="none"><source src="/music/Thriving_Ivory_-_Isabelle.mp3" type="audio/mpeg"></audio>
     </div>
     <div class="track" id="track-44">
+      <button class="cover" data-audio="audio-44" title="Play Thriving Ivory – Unhappy" aria-label="Play Thriving Ivory – Unhappy">
+        <img src="/images/covers/42.jpg" alt="Thriving Ivory – Unhappy" loading="lazy">
+        <span class="ov"><svg viewBox="0 0 24 24" width="18" height="18" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+      </button>
       <span class="track-title">Thriving Ivory &ndash; Unhappy</span>
       <audio id="audio-44" controls preload="none"><source src="/music/Thriving_Ivory_-_Unhappy.mp3" type="audio/mpeg"></audio>
     </div>
@@ -572,7 +560,7 @@
     function coverFor(a) { return document.querySelector('.cover[data-audio="' + a.id + '"]'); }
     function rowFor(a) { return a.closest('.track'); }
     function clearPlaying() {
-      document.querySelectorAll('.cover.playing, .track.playing').forEach(function (el) { el.classList.remove('playing'); });
+      document.querySelectorAll('.track.playing').forEach(function (el) { el.classList.remove('playing'); });
     }
 
     document.querySelectorAll('.cover').forEach(function (c) {
@@ -591,15 +579,12 @@
         current = a;
         clearPlaying();
         var row = rowFor(a); if (row) { row.classList.add('playing'); row.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-        var cov = coverFor(a); if (cov) cov.classList.add('playing');
       });
       a.addEventListener('pause', function () {
         var row = rowFor(a); if (row) row.classList.remove('playing');
-        var cov = coverFor(a); if (cov) cov.classList.remove('playing');
       });
       a.addEventListener('ended', function () {
         var row = rowFor(a); if (row) row.classList.remove('playing');
-        var cov = coverFor(a); if (cov) cov.classList.remove('playing');
       });
     });
   })();
